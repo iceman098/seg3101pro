@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="top">
+                top
+            </ui:define>
+
+            <ui:define name="left">
+                left
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <h:dataTable  cellpadding="10pt" border="2" bgcolor="white" value="#{queryBean.viewProperties}" var="property">
+                            
+                            <h:column>
+                                <f:facet name="header">Property ID</f:facet>
+                                <h:outputText value="#{property.id}"/>
+                            </h:column>
+                        <h:column>     
+                        <f:facet name="header">Owner First Name</f:facet>
+                               <h:outputText value="#{property.ownerFname}"/>
+                            </h:column>
+                            <h:column>
+                             <f:facet name="header">Owner Last Name</f:facet>
+                               <h:outputText value="#{property.ownerLname}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Street Num</f:facet>
+                               <h:outputText value="#{property.streetNum}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Street</f:facet>
+                               <h:outputText value="#{property.street}"/>
+                            </h:column>
+                             <h:column>
+                                 <f:facet name="header">City</f:facet>
+                               <h:outputText value="#{property.city}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Province</f:facet>
+                               <h:outputText value="#{property.province}"/>
+                            </h:column>
+                             <h:column>
+                                 <f:facet name="header">Country</f:facet>
+                               <h:outputText value="#{property.country}"/>
+                            </h:column>   
+                                <h:column>
+                                    <f:facet name="header">Description</f:facet>
+                               <h:outputText value="#{property.description}"/>
+                            </h:column>
+                        
+                                
+                        <h:column>
+                                
+                                    <h:commandButton action="#{userBean.addToVisitList()}" value="Add to Visiting List">
+                                        <f:setPropertyActionListener target="#{userBean.propertyId}" value="#{property.id}"/>
+                                        
+                                </h:commandButton>
+                                    
+                            </h:column>
+                        <h:outputText value="#{userBean.propertyId}"></h:outputText>
+                        </h:dataTable>
+                </h:form>
+                <div>
+                    <hr/>
+                    <hr/>
+                    <h:outputText value="#{userBean.propertyId}"></h:outputText>
+                    <h:outputText value="#{userBean.id}"></h:outputText>
+                    <h:outputText  
+                        
+                        style="color:royalblue; font-size: large; font-weight: bold" 
+                        id="status" 
+                        value="#{userBean.status}"/>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

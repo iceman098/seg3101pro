@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="top">
+                top
+            </ui:define>
+
+            <ui:define name="left">
+                left
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <h:dataTable rows="3" cellpadding="10pt" border="2" bgcolor="white" value="#{userBean.updateProperty}" var="property">
+                                                                                      
+                            <h:column>
+                                <f:facet name="header">Street Num</f:facet>
+                                <h:outputText value="Current: #{property.streetNum}"/>
+                                <br><h:inputText id="streetnum" value="#{queryBean.streetNum}"/>
+                                    <h:commandButton type="command" actionListener="#{queryBean.update()}" action="#{queryBean.update()}" value="Update">
+                                
+                                    </h:commandButton></br>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Street</f:facet>
+                               <h:outputText value="Current: #{property.street}"/>
+                               <br><h:inputText id="street" value="#{queryBean.street}"/>
+                                   <h:commandButton type="command" actionListener="#{queryBean.update}" value="Update">
+                                <f:ajax execute="street"/>
+                                 </h:commandButton></br>
+                            </h:column>
+                             <h:column>
+                                 <f:facet name="header">City</f:facet>
+                               <h:outputText value="Current: #{property.city}"/>
+                               <br><h:inputText id="city" value="#{queryBean.city}"/>
+                                   <h:commandButton type="command" actionListener="#{queryBean.update}" value="Update">
+                                <f:ajax execute="city"/>
+                                 </h:commandButton></br>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Province</f:facet>
+                               <h:outputText value="Current: #{property.province}"/>
+                               <br> <h:inputText id="province" value="#{queryBean.province}"/>
+                                   <h:commandButton type="command" actionListener="#{queryBean.update}" value="Update">
+                                <f:ajax execute="province"/>
+                                 </h:commandButton></br>
+                            </h:column>
+                             <h:column>
+                                 <f:facet name="header">Country</f:facet>
+                               <h:outputText value="Current: #{property.country}"/>
+                               <br><h:inputText id="country" value="#{queryBean.country}"/>
+                                   <h:commandButton type="command" actionListener="#{queryBean.update}" value="Update">
+                                <f:ajax execute="country"/>
+                                 </h:commandButton></br>
+                                </h:column>   
+                                <h:column>
+                               <f:facet name="header">Description</f:facet>
+                               <h:outputText value="Current: #{property.description}"/>
+                               <br><h:inputText id="desc" value="#{queryBean.description}"/>
+                                   <h:commandButton type="command" actionListener="#{queryBean.update}" value="Update">
+                                <f:ajax execute="desc"/>
+                                 </h:commandButton></br>
+                            </h:column>
+                    </h:dataTable>   
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
