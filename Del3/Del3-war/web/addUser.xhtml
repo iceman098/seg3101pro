@@ -9,78 +9,79 @@
 
         <ui:composition template="./template.xhtml">
 
-            
+
             <ui:define name="content">
                 <f:view>
-                   <h:form prependId="false">
-                       
-                           <h:panelGrid columns="6" >
-                               <h:outputText value="User ID"/>
-                               <h:inputText id="id" value="#{addUserBean.id}" required="true"></h:inputText>
-                               <h:outputText value="First Name"></h:outputText>
-                               <h:inputText id="fname" 
+                    <h:form prependId="false">
+
+                        <h:panelGrid columns="6" >
+                            <h:outputText value="User ID"/>
+                            <h:inputText id="id" value="#{addUserBean.id}" required="true"></h:inputText>
+                            <h:outputText value="First Name"></h:outputText>
+                            <h:inputText id="fname" 
                                          value="#{addUserBean.fname}" 
                                          required="true">
-                                </h:inputText>
-                               <h:outputText value="Last Name"></h:outputText>
-                               <h:inputText id="lname" 
+                            </h:inputText>
+                            <h:outputText value="Last Name"></h:outputText>
+                            <h:inputText id="lname" 
                                          value="#{addUserBean.lname}" 
                                          required="true">
-                                </h:inputText>
-                               <h:outputText value="E-Mail"></h:outputText>
-                               <h:inputText id="email" 
+                            </h:inputText>
+                            <h:outputText value="E-Mail"></h:outputText>
+                            <h:inputText id="email" 
                                          value="#{addUserBean.email}" 
                                          required="true">
-                                </h:inputText>
-                               <h:outputText value="Account Type"></h:outputText>
-                               <h:selectOneMenu id="accType" value="#{addUserBean.accType}" required="true">
+                            </h:inputText>
+                            <h:outputText value="Account Type"></h:outputText>
+                            <h:selectOneMenu id="accType" value="#{addUserBean.accType}" required="true">
                                 <f:selectItem itemValue="" itemLabel=""/>
                                 <f:selectItem itemValue="User" itemLabel="User"/>
                                 <f:selectItem itemValue="Owner" itemLabel="Owner"/>
                                 <f:selectItem itemValue="Agent" itemLabel="Agent"/>
-                        
-                    </h:selectOneMenu>
-                               <h:outputText value="Username"></h:outputText>
-                               <h:inputText id="uName" 
+
+                            </h:selectOneMenu>
+                            <h:outputText value="Username"></h:outputText>
+                            <h:inputText id="uName" 
                                          value="#{addUserBean.uName}" 
                                          required="true">
-                                </h:inputText>
-                               <h:outputText value="Password"></h:outputText>
-                               <h:inputText id="password" 
+                            </h:inputText>
+                            <h:outputText value="Password"></h:outputText>
+                            <h:inputText id="password" 
                                          value="#{addUserBean.password}" 
                                          required="true">
-                                </h:inputText>
-                               <h:outputText value="Credit Card"></h:outputText>
-                               <h:inputText id="ccard" 
+                            </h:inputText>
+                            <h:outputText value="Credit Card"></h:outputText>
+                            <h:inputText id="ccard" 
                                          value="#{addUserBean.ccard}" 
                                          required="false">
-                                </h:inputText>
-                               <h:outputText value="Agency"></h:outputText>
-                               <h:inputText id="agency" 
+                            </h:inputText>
+                            <h:outputText value="Agency"></h:outputText>
+                            <h:inputText id="agency" 
                                          value="#{addUserBean.agency}" 
                                          required="false">
-                                </h:inputText>
-                           </h:panelGrid>
-                           <h:commandButton value="Submit" type="command"  
-                                            actionListener="#{addUserBean.addNewUser}">
-                                <f:ajax execute="id fname lname email accType uName password ccard agency" 
-                                        render="status"/>
-                            </h:commandButton>
-                </h:form>
-                    
-                   <div>
-                    <hr/>
-                    <hr/>
-                    <h:outputText  
-                        
-                        style="color:royalblue; font-size: large; font-weight: bold" 
-                        id="status" 
-                        value="#{addUserBean.status}"/>
-                </div>
+                            </h:inputText>
+                        </h:panelGrid>
+                        <h:commandButton value="Submit" type="command"  
+                                         actionListener="#{addUserBean.addNewUser}">
+                            <f:ajax execute="id fname lname email accType uName password ccard agency" 
+                                    render="status"/>
+                        </h:commandButton>
+
+                        <div>
+                            <hr/>
+                            <hr/>
+                            <h:outputText  
+
+                                style="color:royalblue; font-size: large; font-weight: bold" 
+                                id="status" 
+                                value="#{addUserBean.status}"/>
+                        </div>
+                    </h:form>
+
                 </f:view>
-          
-           </ui:define>
-            
+
+            </ui:define>
+
 
         </ui:composition>
 
